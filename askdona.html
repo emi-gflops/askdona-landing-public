@@ -2090,13 +2090,22 @@ body { cursor: auto !important; }
 /* ============================================================
    Manifesto readability fix on light background
    ============================================================ */
-.tone-light .manifesto p .em {
-  color: var(--ink) !important;
-  font-style: italic;
-  opacity: 0.85;
+/* Force darker readable text in manifesto regardless of parent classes */
+.manifesto p,
+.manifesto p .em,
+.manifesto p .accent {
+  /* knock down stale opacity if anything was inherited */
+  opacity: 1 !important;
 }
-.tone-light .manifesto p .accent {
-  color: var(--accent) !important;
+.manifesto p { color: #0C1E2E !important; }
+.manifesto p .em,
+.manifesto p span.em {
+  color: #041119 !important;
+  font-style: italic;
+}
+.manifesto p .accent,
+.manifesto p span.accent {
+  color: #5C1F2A !important;
   font-style: italic;
 }
 
