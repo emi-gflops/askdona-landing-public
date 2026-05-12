@@ -2175,9 +2175,13 @@ body { cursor: auto !important; }
 </style>
 
 <style>
-  /* Iframe-context overrides — minimal: force .reveal visible (IntersectionObserver may not fire in iframe) */
+  /* Iframe-context overrides */
   .reveal { opacity: 1 !important; transform: none !important; }
   .scroll-hint { display: none !important; }
+  /* Smaller title that stays on 2 lines even when the iframe is narrow */
+  h1.hero-title { font-size: clamp(26px, 3.2vw, 44px) !important; }
+  /* Tagline a touch smaller too so it doesn't crowd */
+  .hero-tagline { font-size: clamp(13px, 1vw, 15px) !important; }
 </style>
 </head>
 
@@ -2259,7 +2263,7 @@ body { cursor: auto !important; }
 
             <!-- soft shadow for moons -->
             <filter id="moonGlow" x="-50%" y="-50%" width="200%" height="200%">
-              <feGaussianBlur stdDeviation="8" result="blur"/>
+              <feGaussianBlur stdDeviation="3" result="blur"/>
               <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
             </filter>
 
