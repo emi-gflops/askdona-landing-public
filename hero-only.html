@@ -2175,14 +2175,33 @@ body { cursor: auto !important; }
 </style>
 
 <style>
-  /* In iframe context, force .reveal elements visible immediately so headline/tagline/CTAs
-     don't stay opacity 0 (the IntersectionObserver may not fire reliably) */
+  /* Iframe-context overrides to force hero text visible and readable */
+  html, body { margin: 0; padding: 0; height: 100%; }
+  body { overflow: hidden !important; }
+  .hero { position: relative !important; width: 100% !important; height: 100% !important; min-height: 100% !important; overflow: hidden !important; }
   .reveal { opacity: 1 !important; transform: none !important; }
-  /* The headline is light cream on dark — keep it readable above the painterly scene */
-  h1.hero-title { color: #FCFCFA !important; }
-  h1.hero-title .em { color: #F7F4D0 !important; }
-  .hero-tagline { color: rgba(252, 252, 250, 0.85) !important; }
+  .hero-text {
+    position: absolute !important;
+    bottom: clamp(40px, 10%, 120px) !important;
+    left: clamp(24px, 6vw, 80px) !important;
+    max-width: 560px !important;
+    z-index: 50 !important;
+    color: #FCFCFA;
+  }
+  h1.hero-title {
+    color: #FCFCFA !important;
+    font-size: clamp(40px, 6vw, 76px) !important;
+    line-height: 1.05 !important;
+  }
+  h1.hero-title .em { color: #F7F4D0 !important; font-style: italic; }
+  .hero-tagline {
+    color: rgba(252, 252, 250, 0.88) !important;
+    font-size: clamp(14px, 1.1vw, 17px) !important;
+    margin-top: 16px !important;
+  }
   .hero-tagline .em-soft { color: #FCFCFA !important; }
+  .hero-ctas { margin-top: 24px !important; display: flex !important; gap: 12px !important; flex-wrap: wrap !important; }
+  .scroll-hint { display: none !important; }
 </style>
 </head>
 
